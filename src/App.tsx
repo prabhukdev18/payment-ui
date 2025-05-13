@@ -1,15 +1,17 @@
 
-import './App.css'
-import CheckoutForm from './components/CheckoutForm'
+import React from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import PaymentForm from './components/PaymentForm';
 
-function App() {
+const stripePromise = loadStripe('pk_test_51QArtIRuRJCNcVWeaOUQOkR0Umk7V6GCmfy2jf7Eopg2Tps0nlx6OUrRpUvtKVeuJ4ff1SANE1bxqQqtB4Uo6Ann00HXBc75qK'); // Replace with your Stripe publishable key
 
-
+const App: React.FC = () => {
   return (
-      <>
-      <CheckoutForm />
-    </>
-  )
-}
+    <Elements stripe={stripePromise}>
+      <PaymentForm />
+    </Elements>
+  );
+};
 
-export default App
+export default App;

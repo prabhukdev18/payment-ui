@@ -9,5 +9,5 @@ import { createPayment } from './functions/createPayment/resource';
 defineBackend({
   auth,
   data,
-   createPayment
+  createPayment
 });
